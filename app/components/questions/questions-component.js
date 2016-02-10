@@ -7,6 +7,27 @@ app.controller('QuestionsController', function($rootScope, $scope, DataService){
 	$scope.tags = DataService.getTags();
 	$scope.questions = DataService.getQuestions();
 	
+    
+
+    $scope.discFunc = function (newQ) {
+        if ($scope.newQ) {
+            debugger;
+            $scope.newQ.date = Date.now();
+            $scope.newQ.likes = 0;
+            $scope.newQ.dislikes = 0;
+            $scope.newQ.ans = [];
+            $scope.questions.$add($scope.newQ);
+            $scope.newQ = "";
+        };
+    };
+    
+        $scope.ultraDelete = function(quest){
+      $scope.ourStack.$remove(quest);
+    };
+    
+    
+    
+    
 	/**
 	 * $scope.addQuestion = function(newQuestion){
 	 * 	newQuestion.memberId = $rootScope.member.uid;
