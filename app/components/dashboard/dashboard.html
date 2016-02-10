@@ -1,9 +1,45 @@
-<h1>Having a profile that you can't edit it boring</h1>
-<p>member Object: {{member}}</p>
+<!--<h1>Having a profile that you can't edit it boring</h1>
 
+<p>member Object: {{member}}</p>
 <p>This page needs some flair</p>
-<p>Try rendering to the screen all of the fields that will eventually be added to the $rootScope.member object</p>
-<p>For the MemberObject Schema look at the comments on this file</p>
+<p>Try rendering to the screen all of the fields that will eventually be added to the $rootScdope.member object</p>
+<p>For the MemberObject Schema look at the comments on this file</p>-->
+
+<div ng-controller ="DashboardController">
+    <p>Hello {{member.userName}} {{member.firstName}} {{member.lastName}}</p>
+    
+<form ng-submit="submitForm()">
+    <div class="form-group">
+        <input class="form-control" type="text" ng-model="member.userName" placeholder="Username">
+    </div>
+    <div class="form-group">
+        <input class="form-control" type="text" ng-model="member.firstName" placeholder="First Name">
+    </div>
+    <div class="form-group">
+        <input class="form-control" type="text" ng-model="member.lastName" placeholder="Last Name">
+    </div>
+    <div class="form-group">
+        <input class="form-control" type="text" ng-model="member.imgUrl" placeholder="Image Link">
+    </div>
+    <div class="form-group">
+        <input class="form-control" type="text" ng-model="member.country" placeholder="Home Country">
+    </div>
+    <div class="form-group">
+        <!--will need to change bio to a text area eventually-->
+       <input class="form-control" type="text" ng-model="member.bio" placeholder="Bio">
+    </div>
+    <div class="form-group">
+        <input class="form-control" type="text" ng-model="member.websiteUrl" placeholder="http://yourwebsite.com">
+    </div>
+    <div class="form-group">
+        <input class="form-control" type="text" ng-model="member.github" placeholder="github.com/yourusernamehere">
+    </div>
+    <div class="form-group">
+        <input class="form-control" type="text" ng-model="member.twitter" placeholder="twitter.com/username">
+    </div>
+    <button class="btn btn-default" type="submit" >Submit</button>
+ </form>
+</div>
 
 <!--
 	
