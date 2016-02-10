@@ -1,33 +1,32 @@
 app.controller('DashboardController', function($rootScope, $scope){
-    $rootScope.members = [];
     
-    $rootScope.member= {
-        userName: '',
-		firstName: '',
-		lastName: '',
-		imgUrl:  '',
-		country: '',
-		bio: '',
-		websiteUrl: '',
-		github: '',
-		twitterHandle: '',
-		favoriteTags: [],
+    // $rootScope.member= {
+    //     userName: '',
+	// 	firstName: '',
+	// 	lastName: '',
+	// 	imgUrl:  '',
+	// 	country: '',
+	// 	bio: '',
+	// 	websiteUrl: '',
+	// 	github: '',
+	// 	twitterHandle: '',
+	// 	favoriteTags: [],
 		
         
-        // accountCreated: date,
-		// upVotes: number,
-		// downVotes: number,
-		// reputation: number,
-		// questions: [questionId],
-		// answers: [answerId],
-		// comments: [commentId]
-    }
+    //     // accountCreated: date,
+	// 	// upVotes: number,
+	// 	// downVotes: number,
+	// 	// reputation: number,
+	// 	// questions: [questionId],
+	// 	// answers: [answerId],
+	// 	// comments: [commentId]
+    // }
     
     $rootScope.submitForm = function(){
-        if($scope.member){
-            $rootScope.members.push($rootScope.member);
+        
+            $rootScope.member.$save();
             
-        }
+        
     }
 
 	//  * To edit the member object you must go through $rootScope.member

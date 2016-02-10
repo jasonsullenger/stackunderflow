@@ -8,7 +8,7 @@
 <div ng-controller ="DashboardController">
     <p>Hello {{member.userName}} {{member.firstName}} {{member.lastName}}</p>
     
-<form>
+<form ng-submit="submitForm()">
     <div class="form-group">
         <input class="form-control" type="text" ng-model="member.userName" placeholder="Username">
     </div>
@@ -37,7 +37,7 @@
     <div class="form-group">
         <input class="form-control" type="text" ng-model="member.twitter" placeholder="twitter.com/username">
     </div>
-    <button class="btn btn-default" ng-click="submitForm()">Submit</button>
+    <button class="btn btn-default" type="submit" >Submit</button>
  </form>
 </div>
 
