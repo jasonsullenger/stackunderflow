@@ -9,19 +9,3 @@
 <p>Only the member who posted the the questions/answers/comments can edit their content</p>
 <p>A member may only upvote the questions/answers/comments once.</p>
 <p>A member can change their vote to either up or down but may not vote both ways.</p>
-
-<div>
-    <img src="assets/img/sickNastyinverse.png" alt="Sick Nasty">
-    <h3 id="title"> SickNastyClassy Forums </h3>
-    <h4>Welcome {{member.username}}</h4>
-    <div class="panel panel-default">
-        <label for="">Input your question here.</label>
-        <br>
-        <textarea class="form-control" rows="10" id="question" type="text" ng-model="newQ.question"></textarea>
-        <br>
-        <label for="">One word description of your question.</label>
-        <br>
-        <input class="form-control" type="text" ng-model="newQ.tags">
-        <button class="btn btn-primary" ng-click="discFunc(newQ)">Submit question</button>
-    </div>
-</div>

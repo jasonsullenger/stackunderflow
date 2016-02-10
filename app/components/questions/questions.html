@@ -9,3 +9,59 @@
 <p>The questions can be orderby max upvotes or by date created depending on the users choice.</p>
 <p>The question can be filtered based upon tags, unanswered</p>
 <p>No voting from this page.</p>
+
+<ul>
+            <li ng-repeat="quest in ourStack | filter: query | orderBy: sortOrder track by $index">
+                <h3> <img ng-if="quest.isAnswered" src="assets/img/middleFingerWhite.png" alt="Fah Que"> 
+                {{quest.question}} <span ng-click="ultraDelete($index)" class="badge">Delete</span></h3>
+                <span>Tag: {{quest.tags}}</span>
+                <label for="upVote" class="uppy"></label>
+                <button class="btn btn-success btn-xs" ng-click="voteUp(quest)" type="button">
+                    Vote Up: <span class="badge">{{quest.likes}}</span>
+                </button>
+                <label for="downVote" class="downy"></label>
+                <button class="btn btn-danger btn-xs" ng-click="voteDown(quest)" type="button">Vote Down: <span class="badge">{{quest.dislikes}}</span>
+                </button>
+                <div>
+                    <a href='' ng-click="showComments(quest, thing); sortOrder = '-likes'">Comments</a>
+                    <br/>
+                </div>
+                <div class="panel panel-default" ng-show="quest.showComment">
+                    <div>
+                        <input type="text" ng-model="quest.response.body">
+                        <button class="btn btn-primary" ng-click="respFunc(quest)">Submit</button>
+                    </div>
+                    <ul>
+                        <!--<button class="btn btn-primary btn-sm" ng-click="sortOrder = '-likes'">Sort by votes <i class="fa fa-level-up"></i></button> -->
+                        <li class="list-group-item" ng-class="{bestAnswer: thing.bestAnswer}" ng-repeat="thing in commentsRef | orderBy: sortOrder track by $index">
+                            <button class="btn btn-success btn-xs" ng-click="cvoteUp(thing, quest)">Vote Up: <span class="badge">{{thing.likes}}</span></button>
+
+                            <button class="btn btn-danger btn-xs" ng-click="cvoteDown(thing, quest)">Vote Down: <span class="badge">{{thing.dislikes}}</span></button>
+
+                            <span ng-click="destroy(quest, $index)" class="badge">Delete </span> {{thing.date | date: "yyyy/MM/dd
+                            HH:mm" }}
+                            <h4>{{thing.body}}</h4>
+                            <input type="checkbox" ng-click="bestAnswer(thing, quest)" ng-disabled="quest.isAnswered">Best Answer
+                            <br/>
+                        </li>
+                    </ul>
+
+            </li>
+        </ul>
+
+
+<div>
+    <img src="assets/img/sickNastyinverse.png" alt="Sick Nasty">
+    <h3 id="title"> SickNastyClassy Forums </h3>
+    <h4>Welcome {{member.username}}</h4>
+    <div class="panel panel-default">
+        <label for="">Input your question here.</label>
+        <br>
+        <textarea class="form-control" rows="10" id="question" type="text" ng-model="newQ.question"></textarea>
+        <br>
+        <label for="">One word description of your question.</label>
+        <br>
+        <input class="form-control" type="text" ng-model="newQ.tags">
+        <button class="btn btn-primary" ng-click="discFunc(newQ)">Submit question</button>
+    </div>
+</div>
