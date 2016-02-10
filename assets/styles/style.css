@@ -12,20 +12,23 @@
 	color: aliceblue;
 	background-color: #DF691A;
 }
+
 #imgHeader{
     height: 50px;
     
 }
+
 #imgFooter{
     height:125px;
 }
-#headerPadding{
+/*#headerPadding{
     padding-top: 5px;
     padding-bottom: 0px;
     padding-right: 0px;
     padding-left: 15px;
     
-}
+}*/
+
 .uppy{
     color: green;
     
@@ -58,3 +61,4 @@
 .form-control{
     border: 3px #df691a solid;
 }
+

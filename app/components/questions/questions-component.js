@@ -27,7 +27,18 @@ app.controller('QuestionsController', function ($rootScope, $scope, DataService)
     };
 
 
+
     
+    //    $scope.ourStack.quest.likes = 0;
+       $scope.voteUp = function (newQ) {
+           newQ.likes++
+           $scope.ourStack.$save(newQ);
+       }
+           
+       $scope.voteDown = function (newQ) {
+           newQ.dislikes--
+           $scope.ourStack.$save(newQ);           
+       }
     
 	/**
 	 * $scope.addQuestion = function(newQuestion){
@@ -80,7 +91,7 @@ app.controller('QuestionController', function ($rootScope, $scope, question, com
 	 * $scope.question.votes[$rootScope.member.uid] = 1 || -1
 	 * 
 	 * This logic here should help keep your voteCount on track
-	 * $scope.question.voteCount = 0;
+       $scope.question.voteCount = 0;
 	 * for(var key in $scope.question.votes){
 	 * 	$scope.question.voteCount += $scope.question.votes[key];
 	 * }
@@ -93,6 +104,20 @@ app.controller('QuestionController', function ($rootScope, $scope, question, com
     $scope.responses = responses;  
     
     //  db.child('ourStack').child(quest.$id).child('ans').push(quest.response)
+    
+    
+    
+    
+    // Votes
+// Question voting
+    // $scope.voteUp = function (quest) {
+    //     quest.likes++;
+    //     $scope.child('ourStack').child(quest.$id).update({likes: quest.likes})
+    // }
+    // $scope.voteDown = function (quest) {
+    //      quest.dislikes--;
+    //     $scope.child('ourStack').child(quest.$id).update({dislikes: quest.dislikes})
+    // }
     
     
     
