@@ -12,6 +12,17 @@
 	color: aliceblue;
 	background-color: #222;
 }
-img{
-    height: 100px;
+#imgHeader{
+    height: 50px;
+    
+}
+#imgFooter{
+    height:125px;
+}
+#headerPadding{
+    padding-top: 5px;
+    padding-bottom: 0px;
+    padding-right: 0px;
+    padding-left: 15px;
+    
 }

@@ -1,31 +1,32 @@
-app.controller('QuestionsController', function($rootScope, $scope, DataService){
+app.controller('QuestionsController', function ($rootScope, $scope, DataService) {
 	/**
 	 * $scope.tags and $scope.questions are $firebaseArrays from AngularFire 
 	 * To see the methods at your disposal look here
 	 * https://www.firebase.com/docs/web/libraries/angular/api.html#angularfire-firebasearray
 	 * */
-	$scope.tags = DataService.getTags();
-	$scope.questions = DataService.getQuestions();
-	
-    
+    $scope.tags = DataService.getTags();
+    $scope.ourStack = DataService.getQuestions();
 
-    $scope.discFunc = function (newQ) {
+    $scope.discFunc = function () {
         if ($scope.newQ) {
-            debugger;
             $scope.newQ.date = Date.now();
             $scope.newQ.likes = 0;
             $scope.newQ.dislikes = 0;
             $scope.newQ.ans = [];
-            $scope.questions.$add($scope.newQ);
+            $scope.ourStack.$add($scope.newQ).then(function(ref){
+                $rootScope.member.questions = $rootScope.member.questions || {};
+                $rootScope.member.questions[ref.key()] = ref.key();
+                $rootScope.member.$save();
+            });
             $scope.newQ = "";
         };
     };
-    
-        $scope.ultraDelete = function(quest){
-      $scope.ourStack.$remove(quest);
+
+    $scope.ultraDelete = function (quest) {
+        $scope.ourStack.$remove(quest);
     };
-    
-    
+
+
     
     
 	/**
@@ -36,7 +37,7 @@ app.controller('QuestionsController', function($rootScope, $scope, DataService){
 	 * 	  $rootScope.member.questions = $rootScope.member.questions || {};
 	 *    //Another Dictonary structure all we are doing is adding the questionId to the member.questions dictionary.
 	 *    //To avoid duplicating data in our database we only store the questionId instead of the entire question again 
-	 *    $rootScope.member.questions[ref.id] = ref.id;
+	 *    $rootScope.member.questions[ref.key()] = ref.key();
 	 *    $rootScope.member.$save();
 	 *  })
 	 * }
@@ -53,10 +54,12 @@ app.controller('QuestionsController', function($rootScope, $scope, DataService){
 	 * } 
 	 */
 
-	
+
 });
 
-app.controller('QuestionController', function($rootScope, $scope, question, comments, responses){
+app.controller('QuestionController', function ($rootScope, $scope, question, comments, responses, FBREF, $firebaseArray) {
+
+    // $scope.ourStack = $firebaseArray(new Firebase(FBREF + 'ourStack'));
 	/**
 	 * The question, comments, responses arguments being passed into the controller  ^^^^^^^
 	 * come from the question route resolve,
@@ -85,9 +88,16 @@ app.controller('QuestionController', function($rootScope, $scope, question, comm
 	 * Don't forget to call $scope.question.$save() after updating the question properties
 	 * Also anytime you update $rootScope.member don't forget $rootScope.member.$save() to write it to the db
 	 * */
-	$scope.question = question;
-	$scope.comments = comments;
-	$scope.responses = responses;
+    $scope.question = question;
+    $scope.comments = comments;
+    $scope.responses = responses;  
+    
+    //  db.child('ourStack').child(quest.$id).child('ans').push(quest.response)
+    
+    
+    
+    
+    
 	
 	/**
 	 * $scope.addComment = function(newQuestion){
@@ -113,5 +123,5 @@ app.controller('QuestionController', function($rootScope, $scope, question, comm
 	 *	tags: [tags] 
 	 * } 
 	 */
-	
+
 });
