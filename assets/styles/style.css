@@ -10,7 +10,7 @@
 	padding-top: 80px;
 	min-height: 250px;
 	color: aliceblue;
-	background-color: #222;
+	background-color: #DF691A;
 }
 #imgHeader{
     height: 50px;
@@ -25,4 +25,27 @@
     padding-right: 0px;
     padding-left: 15px;
     
+}
+.uppy{
+    color: green;
+    
+}
+
+.downy{
+    color: red;
+    
+}
+
+.bestAnswer{
+    background: cadetblue;
+
+}
+
+.showComment{
+    display: none;
+}
+
+#title{
+    color: #DF691A;
+    font-weight: 600;
 }
