@@ -9,23 +9,6 @@ app.controller('QuestionsController', function($rootScope, $scope, DataService){
 	
     
 
-    $scope.discFunc = function (newQ) {
-        if ($scope.newQ) {
-            debugger;
-            $scope.newQ.date = Date.now();
-            $scope.newQ.likes = 0;
-            $scope.newQ.dislikes = 0;
-            $scope.newQ.ans = [];
-            $scope.questions.$add($scope.newQ);
-            $scope.newQ = "";
-        };
-    };
-    
-        $scope.ultraDelete = function(quest){
-      $scope.ourStack.$remove(quest);
-    };
-    
-    
     
     
 	/**
@@ -88,6 +71,33 @@ app.controller('QuestionController', function($rootScope, $scope, question, comm
 	$scope.question = question;
 	$scope.comments = comments;
 	$scope.responses = responses;
+    
+    
+    
+    
+    $scope.discFunc = function () {
+        if ($scope.newQ) {
+            debugger;
+            $scope.newQ.date = Date.now();
+            $scope.newQ.likes = 0;
+            $scope.newQ.dislikes = 0;
+            $scope.newQ.ans = [];
+            $scope.users.memberId.$add($scope.newQ);
+            $scope.newQ = "";
+        };
+    };
+    
+        $scope.ultraDelete = function(quest){
+      $scope.ourStack.$remove(quest);
+    };
+    
+    
+    
+    
+    
+    
+    
+    
 	
 	/**
 	 * $scope.addComment = function(newQuestion){
