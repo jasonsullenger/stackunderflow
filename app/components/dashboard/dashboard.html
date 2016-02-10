@@ -6,10 +6,14 @@
 <p>For the MemberObject Schema look at the comments on this file</p>-->
 
 <div ng-controller ="DashboardController">
-    <p>Hello {{member.userName}} {{member.firstName}} {{member.lastName}}</p>
     
-<form ng-submit="submitForm()">
-    <div class="form-group">
+    <button class="btn btn-primary" ng-click="showForm()">Edit Profile</button>
+    
+    <h1>Hello {{member.firstName}} {{member.lastName}} </h1>
+    <img src="{{member.imgUrl}}" alt="profile pic">
+    
+<form  ng-submit="submitForm()" ng-show="editing">
+    <div class="form-group panel panel-default">
         <input class="form-control" type="text" ng-model="member.userName" placeholder="Username">
     </div>
     <div class="form-group">
@@ -25,8 +29,7 @@
         <input class="form-control" type="text" ng-model="member.country" placeholder="Home Country">
     </div>
     <div class="form-group">
-        <!--will need to change bio to a text area eventually-->
-       <input class="form-control" type="text" ng-model="member.bio" placeholder="Bio">
+       <textarea rows="5" class="form-control" ng-model="member.bio" placeholder="Bio"></textarea>
     </div>
     <div class="form-group">
         <input class="form-control" type="text" ng-model="member.websiteUrl" placeholder="http://yourwebsite.com">
@@ -35,9 +38,12 @@
         <input class="form-control" type="text" ng-model="member.github" placeholder="github.com/yourusernamehere">
     </div>
     <div class="form-group">
-        <input class="form-control" type="text" ng-model="member.twitter" placeholder="twitter.com/username">
+        <input class="form-control" type="text" ng-model="member.twitterHandle" placeholder="twitter.com/username">
     </div>
-    <button class="btn btn-default" type="submit" >Submit</button>
+    <div class="form-group">
+        <input class="form-control" type="text" ng-model="member.favoriteTags" placeholder="Favorite Tags">
+    </div>
+    <button class="btn btn-primary" type="submit" >Submit</button>
  </form>
 </div>
 

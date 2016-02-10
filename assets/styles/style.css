@@ -8,14 +8,16 @@
 
 .stacked-footer{
 	padding-top: 80px;
-	min-height: 250px;
+	height: 150px;
 	color: aliceblue;
-	background-color: #222;
+	background-color: #DF691A;
 }
+
 #imgHeader{
     height: 50px;
     
 }
+
 #imgFooter{
     height:125px;
 }
@@ -26,3 +28,28 @@
     padding-left: 15px;
     
 }*/
+
+.uppy{
+    color: green;
+    
+}
+
+.downy{
+    color: red;
+    
+}
+
+.bestAnswer{
+    background: cadetblue;
+
+}
+
+.showComment{
+    display: none;
+}
+
+#title{
+    color: #DF691A;
+    font-weight: 600;
+}
+
