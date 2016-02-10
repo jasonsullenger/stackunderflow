@@ -9,10 +9,11 @@
     
     <button class="btn btn-primary" ng-click="showForm()">Edit Profile</button>
     
-    <h1>Hello {{member.firstName}} {{member.lastName}} </h1>
-    <img src="{{member.imgUrl}}" alt="profile pic">
+    <h1>Hello {{member.firstName}} {{member.lastName}}! </h1>
+    <img class="profile-pic" src="{{member.imgUrl}}" alt="profile pic">
     
 <form  ng-submit="submitForm()" ng-show="editing">
+    <h2>Your Info:</h2>
     <div class="form-group panel panel-default">
         <input class="form-control" type="text" ng-model="member.userName" placeholder="Username">
     </div>
