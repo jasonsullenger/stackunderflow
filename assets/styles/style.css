@@ -53,3 +53,12 @@
     font-weight: 600;
 }
 
+.profile-pic{
+    height: 400px;
+    padding-bottom: 15px;
+}
+
+.form-control{
+    border: 3px #df691a solid;
+}
+

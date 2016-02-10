@@ -1,18 +1,12 @@
-app.controller('DashboardController', function($rootScope, $scope){
-   $scope.editing=false
-    
-    $rootScope.submitForm = function(){
-        
-            $rootScope.member.$save();
-            $scope.editing=false;
-            
-        
+app.controller('DashboardController', function ($rootScope, $scope) {
+    $scope.editing = false
+    $rootScope.submitForm = function () {
+        $rootScope.member.$save();
+        $scope.editing = false;
     }
-    
-    $scope.showForm= function(){
-        $scope.editing=!$scope.editing
+    $scope.showForm = function () {
+        $scope.editing = !$scope.editing
     }
-
 });
     // $rootScope.member= {
     //     userName: '',
