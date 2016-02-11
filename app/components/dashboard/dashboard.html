@@ -5,64 +5,63 @@
 <p>Try rendering to the screen all of the fields that will eventually be added to the $rootScdope.member object</p>
 <p>For the MemberObject Schema look at the comments on this file</p>-->
 
-<div ng-controller ="DashboardController">
-    
-    <button class="btn btn-primary" ng-click="showForm()">Edit Profile</button>
-    
-    <h1>Hello {{member.firstName}} {{member.lastName}}! </h1>
-    <img class="profile-pic" src="{{member.imgUrl}}" alt="profile pic">
-    
-    <div class="panel panel-primary">
-  <!-- Default panel contents -->
-  <div class="panel-heading">Profile Info:</div>
-  <div class="panel-body">
-    <p>{{member.bio}}</p>
-  </div>
+<div ng-controller="DashboardController">
 
-  <!-- List group -->
-  <ul class="list-group">
-    <li class="list-group-item">Country: {{member.country}}</li>
-    <li class="list-group-item">Website:{{member.websiteUrl}}</li>
-    <li class="list-group-item">Morbi leo risus</li>
-    <li class="list-group-item">Porta ac consectetur ac</li>
-    <li class="list-group-item">Vestibulum at eros</li>
-  </ul>
-</div>
-    
-<form  ng-submit="submitForm()" ng-show="editing">
-    <h2>Your Info:</h2>
-    <div class="form-group panel panel-default">
-        <input class="form-control" type="text" ng-model="member.userName" placeholder="Username">
+    <button class="btn btn-primary" ng-click="showForm()">Edit Profile</button>
+
+    <h1>Hello {{member.firstName}} {{member.lastName}}! </h1>
+    <img id="profileitem" class="profile-pic" src="{{member.imgUrl}}" alt="profile pic">
+
+    <div id="profilewindow" class="panel panel-primary">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Profile Info:</div>
+        <div class="panel-body">
+            <!-- List group -->
+            <ul class="list-group">
+                <li id="profileitem" class="list-group-item">Bio: {{member.bio}}</li>
+                <li id="profileitem" class="list-group-item">Favorite Tags: {{member.favoriteTags}}</li>
+                <li id="profileitem" class="list-group-item">Country: {{member.country}}</li>
+                <li id="profileitem" class="list-group-item">Website:  <a href="{{member.websiteUrl}}">{{member.websiteUrl}}</a></li>
+                <li id="profileitem" class="list-group-item">Github:  <a href="{{member.github}}"> {{member.github}}</a></li>
+                <li id="profileitem" class="list-group-item">Twitter:  <a href="{{member.twitterHandle}}"> {{member.twitterHandle}}</a></li>
+            </ul>
+        </div>
     </div>
-    <div class="form-group">
-        <input class="form-control" type="text" ng-model="member.firstName" placeholder="First Name">
-    </div>
-    <div class="form-group">
-        <input class="form-control" type="text" ng-model="member.lastName" placeholder="Last Name">
-    </div>
-    <div class="form-group">
-        <input class="form-control" type="text" ng-model="member.imgUrl" placeholder="Image Link">
-    </div>
-    <div class="form-group">
-        <input class="form-control" type="text" ng-model="member.country" placeholder="Home Country">
-    </div>
-    <div class="form-group">
-       <textarea rows="5" class="form-control" ng-model="member.bio" placeholder="Bio"></textarea>
-    </div>
-    <div class="form-group">
-        <input class="form-control" type="text" ng-model="member.websiteUrl" placeholder="http://yourwebsite.com">
-    </div>
-    <div class="form-group">
-        <input class="form-control" type="text" ng-model="member.github" placeholder="github.com/yourusernamehere">
-    </div>
-    <div class="form-group">
-        <input class="form-control" type="text" ng-model="member.twitterHandle" placeholder="twitter.com/username">
-    </div>
-    <div class="form-group">
-        <input class="form-control" type="text" ng-model="member.favoriteTags" placeholder="Favorite Tags">
-    </div>
-    <button class="btn btn-primary" type="submit" >Submit</button>
- </form>
+
+    <form ng-submit="submitForm()" ng-show="editing">
+        <h2>Your Info:</h2>
+        <div class="form-group panel panel-default">
+            <input class="form-control" type="text" ng-model="member.userName" placeholder="Username">
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="text" ng-model="member.firstName" placeholder="First Name">
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="text" ng-model="member.lastName" placeholder="Last Name">
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="text" ng-model="member.imgUrl" placeholder="Image Link">
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="text" ng-model="member.country" placeholder="Home Country">
+        </div>
+        <div class="form-group">
+            <textarea rows="5" class="form-control" ng-model="member.bio" placeholder="Bio"></textarea>
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="text" ng-model="member.websiteUrl" placeholder="http://yourwebsite.com">
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="text" ng-model="member.github" placeholder="github.com/yourusernamehere">
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="text" ng-model="member.twitterHandle" placeholder="twitter.com/username">
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="text" ng-model="member.favoriteTags" placeholder="Favorite Tags">
+        </div>
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
 </div>
 
 <!--

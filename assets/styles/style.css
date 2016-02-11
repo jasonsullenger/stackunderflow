@@ -55,10 +55,17 @@
 
 .profile-pic{
     height: 400px;
-    padding-bottom: 15px;
 }
 
 .form-control{
     border: 3px #df691a solid;
 }
 
+#profileitem{
+    border: 3px #df691a solid;
+    margin-bottom: 5px;
+}
+
+#profilewindow{
+    border: 3px #df691a solid;
+}
