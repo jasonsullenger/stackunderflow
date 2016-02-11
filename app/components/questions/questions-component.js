@@ -134,6 +134,21 @@ app.controller('QuestionController', function ($rootScope, $scope, question, com
             $scope.response = "";
         }
     }
+
+    // Selects best answer or sets is answered
+        $scope.bestAnswer = function (thing, quest) {
+           thing.bestAnswer = !thing.bestAnswer;
+           $scope.quest.isAnswered = true;       
+    }
+        // Comments voting
+    $scope.cvoteUp = function (response) {
+        response.likes++;
+        $scope.responses.$save(response);
+    }
+    $scope.cvoteDown = function (response) {
+        response.dislikes--;
+        $scope.responses.$save(response);
+    }
     
     
     // Votes
