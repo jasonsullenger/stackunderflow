@@ -12,8 +12,11 @@
 
 <ul>
             <li ng-repeat="quest in ourStack | filter: query | orderBy: sortOrder track by $index">
-                <h3 ui-sref="question({id: quest.$id})"> <img ng-if="quest.isAnswered" src="assets/img/middleFingerWhite.png" alt="Fah Que"> 
-                {{quest.question}} </h3> <span ng-click="ultraDelete($index)" class="badge">Delete</span>
+                <h3>
+                    <img ng-if="quest.isAnswered" src="assets/img/middleFingerWhite.png" alt="Fah Que"> 
+                    <span ui-sref="question({id: quest.$id})">{{quest.question}}</span>
+                    <span ng-click="ultraDelete($index)" class="badge">Delete</span> 
+                </h3>
                 <span>Tag: {{quest.tags}}</span>
                 <label for="upVote" class="uppy"></label>
                 <button class="btn btn-success btn-xs" ng-click="voteUp(quest)" type="button">
