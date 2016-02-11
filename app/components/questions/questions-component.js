@@ -35,7 +35,9 @@ app.controller('QuestionsController', function ($rootScope, $scope, DataService)
     
     //    $scope.ourStack.quest.likes = 0;
        $scope.voteUp = function (newQ) {
+           debugger;
            newQ.likes++
+           
            $scope.ourStack.$save(newQ);
        }
            
