@@ -9,3 +9,28 @@
 <p>Only the member who posted the the questions/answers/comments can edit their content</p>
 <p>A member may only upvote the questions/answers/comments once.</p>
 <p>A member can change their vote to either up or down but may not vote both ways.</p>
+
+<h1>
+    {{quest.question}}
+</h1>
+
+<div class="panel panel-default">
+    <div>
+        <input type="text" ng-model="response.body">
+        <button class="btn btn-primary" ng-click="respFunc(response)">Submit</button>
+    </div>
+    <ul>
+        <button class="btn btn-primary btn-sm" ng-click="sortOrder = '-likes'">Sort by votes <i class="fa fa-level-up"></i></button>
+        <li class="list-group-item" ng-class="{bestAnswer: thing.bestAnswer}" ng-repeat="thing in responses | orderBy: sortOrder track by $index">
+            <button class="btn btn-success btn-xs" ng-click="cvoteUp(thing, quest)">Vote Up: <span class="badge">{{thing.likes}}</span></button>
+
+            <button class="btn btn-danger btn-xs" ng-click="cvoteDown(thing, quest)">Vote Down: <span class="badge">{{thing.dislikes}}</span></button>
+
+            <span ng-click="destroy(quest, $index)" class="badge">Delete </span> {{thing.date | date: "yyyy/MM/dd HH:mm"
+            }}
+            <h4>{{thing.body}}</h4>
+            <input type="checkbox" ng-click="bestAnswer(thing, quest)" ng-disabled="quest.isAnswered">Best Answer
+            <br/>
+        </li>
+    </ul>
+</div>

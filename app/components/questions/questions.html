@@ -11,7 +11,7 @@
 <p>No voting from this page.</p>
 
 <ul>
-            <li ng-repeat="quest in ourStack | filter: query | orderBy: sortOrder track by $index">
+            <li ng-repeat="quest in ourStack | filter: query | orderBy: sortOrder track by $index" ui-sref="question({id: quest.$id})">
                 <h3> <img ng-if="quest.isAnswered" src="assets/img/middleFingerWhite.png" alt="Fah Que"> 
                 {{quest.question}} <span ng-click="ultraDelete($index)" class="badge">Delete</span></h3>
                 <span>Tag: {{quest.tags}}</span>
@@ -22,32 +22,8 @@
                 <label for="downVote" class="downy"></label>
                 <button class="btn btn-danger btn-xs" ng-click="voteDown(quest)" type="button">Vote Down: <span class="badge">{{quest.dislikes}}</span>
                 </button>
-                <div>
-                    <a href='' ng-click="showComments(quest, thing); sortOrder = '-likes'">Comments</a>
-                    <br/>
-                </div>
-                <div class="panel panel-default" ng-show="quest.showComment">
-                    <div>
-                        <input type="text" ng-model="quest.response.body">
-                        <button class="btn btn-primary" ng-click="respFunc(quest)">Submit</button>
-                    </div>
-                    <ul>
-                        <!--<button class="btn btn-primary btn-sm" ng-click="sortOrder = '-likes'">Sort by votes <i class="fa fa-level-up"></i></button> -->
-                        <li class="list-group-item" ng-class="{bestAnswer: thing.bestAnswer}" ng-repeat="thing in commentsRef | orderBy: sortOrder track by $index">
-                            <button class="btn btn-success btn-xs" ng-click="cvoteUp(thing, quest)">Vote Up: <span class="badge">{{thing.likes}}</span></button>
-
-                            <button class="btn btn-danger btn-xs" ng-click="cvoteDown(thing, quest)">Vote Down: <span class="badge">{{thing.dislikes}}</span></button>
-
-                            <span ng-click="destroy(quest, $index)" class="badge">Delete </span> {{thing.date | date: "yyyy/MM/dd
-                            HH:mm" }}
-                            <h4>{{thing.body}}</h4>
-                            <input type="checkbox" ng-click="bestAnswer(thing, quest)" ng-disabled="quest.isAnswered">Best Answer
-                            <br/>
-                        </li>
-                    </ul>
-
-            </li>
-        </ul>
+              </li>
+              </ul>
 
 
 <div>
