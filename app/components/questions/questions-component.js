@@ -23,31 +23,27 @@ app.controller('QuestionsController', function ($rootScope, $scope, DataService)
             $scope.newQ = "";
         };
     };
-// Creates response 
-       
 
+       
+// Deletes Question
     $scope.ultraDelete = function (quest) {
         $scope.ourStack.$remove(quest);
     };
-
-
-
-    
-    //    $scope.ourStack.quest.likes = 0;
+ 
+// Question Voting
        $scope.voteUp = function (newQ) {
            debugger;
            newQ.likes++
            
            $scope.ourStack.$save(newQ);
-       }
-           
+       }           
        $scope.voteDown = function (newQ) {
            newQ.dislikes--
            $scope.ourStack.$save(newQ);           
        }
        
        
-    //    Shows Comments
+//    Shows Comments
        $scope.showComments = function (quest){
             // $scope.commentsRef = $firebaseArray(new Firebase(FBREF + '/ourStack/' + quest.$id + '/ans'));
             quest.showComment = !quest.showComment;
@@ -119,6 +115,7 @@ app.controller('QuestionController', function ($rootScope, $scope, question, com
     
     //  db.child('ourStack').child(quest.$id).child('ans').push(quest.response)
     
+// Creates Response    
      $scope.respFunc = function (response) {
         if (response) {
            response.date = Date.now();
@@ -137,12 +134,12 @@ app.controller('QuestionController', function ($rootScope, $scope, question, com
         }
     }
 
-    // Selects best answer or sets is answered
+// Selects best answer or sets is answered
         $scope.bestAnswer = function (thing, quest) {
            thing.bestAnswer = !thing.bestAnswer;
            $scope.quest.isAnswered = true;       
     }
-        // Comments voting
+// Comments voting
     $scope.cvoteUp = function (response) {
         response.likes++;
         $scope.responses.$save(response);
@@ -151,23 +148,6 @@ app.controller('QuestionController', function ($rootScope, $scope, question, com
         response.dislikes--;
         $scope.responses.$save(response);
     }
-    
-    
-    // Votes
-// Question voting
-    // $scope.voteUp = function (quest) {
-    //     quest.likes++;
-    //     $scope.child('ourStack').child(quest.$id).update({likes: quest.likes})
-    // }
-    // $scope.voteDown = function (quest) {
-    //      quest.dislikes--;
-    //     $scope.child('ourStack').child(quest.$id).update({dislikes: quest.dislikes})
-    // }
-    
-    
-    
-    
-    
 	
 	/**
 	 * $scope.addComment = function(newQuestion){
@@ -193,5 +173,4 @@ app.controller('QuestionController', function ($rootScope, $scope, question, com
 	 *	tags: [tags] 
 	 * } 
 	 */
-
 });
