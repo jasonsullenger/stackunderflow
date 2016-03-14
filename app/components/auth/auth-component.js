@@ -70,12 +70,7 @@ app.service('AuthService', function ($rootScope, $firebaseObject, CONSTANTS) {
 	function createUser(authData, user){
 		var userToAdd = {
 				email: user.email,
-				reputation: function(){
-                    var rep= 0;
-                    for(var i = 0; i < $rootScope.member.questions.length; i++){
-                        
-                    }
-                },
+				reputation: 0,
 				created: Date.now()
 			}
 			db.child('users').child(authData.uid).update(userToAdd);

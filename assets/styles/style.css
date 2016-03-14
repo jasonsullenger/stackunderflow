@@ -63,9 +63,11 @@
 
 #profileitem{
     border: 3px #df691a solid;
+    margin-top: 5px;
     margin-bottom: 5px;
 }
 
 #profilewindow{
     border: 3px #df691a solid;
 }
+
