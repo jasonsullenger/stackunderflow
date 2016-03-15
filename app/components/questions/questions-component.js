@@ -32,7 +32,9 @@ app.controller('QuestionsController', function ($rootScope, $scope, DataService)
  
 // Question Voting
        $scope.voteUp = function (newQ) {
+           debugger;
            newQ.likes++
+           
            $scope.ourStack.$save(newQ);
        }           
        $scope.voteDown = function (newQ) {

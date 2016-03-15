@@ -12,13 +12,15 @@
     <h1>Hello {{member.firstName}} {{member.lastName}}! </h1>
     <img id="profileitem" class="profile-pic" src="{{member.imgUrl}}" alt="profile pic">
 
-    <div id="profilewindow" class="panel panel-primary">
+    <div id="profilewindow" class="panel panel-primary" ng-show="!editing">
         <!-- Default panel contents -->
         <div class="panel-heading">Profile Info:</div>
         <div class="panel-body">
             <!-- List group -->
             <ul class="list-group">
                 <li id="profileitem" class="list-group-item">Bio: {{member.bio}}</li>
+                 <li id="profileitem" class="list-group-item">email: {{member.email}}</li>
+                  <li id="profileitem" class="list-group-item">Reputation: {{member.reputation}}</li>
                 <li id="profileitem" class="list-group-item">Favorite Tags: {{member.favoriteTags}}</li>
                 <li id="profileitem" class="list-group-item">Country: {{member.country}}</li>
                 <li id="profileitem" class="list-group-item">Website:  <a href="{{member.websiteUrl}}">{{member.websiteUrl}}</a></li>
@@ -28,37 +30,38 @@
         </div>
     </div>
 
-    <form ng-submit="submitForm()" ng-show="editing">
-        <h2>Your Info:</h2>
+
+    <form ng-submit="submitForm()" class="panel panel-primary" ng-show="editing">
+        <div class="panel-heading">Edit Info:</div>
         <div class="form-group panel panel-default">
-            <input class="form-control" type="text" ng-model="member.userName" placeholder="Username">
+            <input id="profileitem" class="form-control" type="text" ng-model="member.userName" placeholder="Username">
         </div>
         <div class="form-group">
-            <input class="form-control" type="text" ng-model="member.firstName" placeholder="First Name">
+            <input id="profileitem"  class="form-control" type="text" ng-model="member.firstName" placeholder="First Name">
         </div>
         <div class="form-group">
-            <input class="form-control" type="text" ng-model="member.lastName" placeholder="Last Name">
+            <input id="profileitem" class="form-control" type="text" ng-model="member.lastName" placeholder="Last Name">
         </div>
         <div class="form-group">
-            <input class="form-control" type="text" ng-model="member.imgUrl" placeholder="Image Link">
+            <input id="profileitem" class="form-control" type="text" ng-model="member.imgUrl" placeholder="Image Link">
         </div>
         <div class="form-group">
-            <input class="form-control" type="text" ng-model="member.country" placeholder="Home Country">
+            <input id="profileitem" class="form-control" type="text" ng-model="member.country" placeholder="Home Country">
         </div>
         <div class="form-group">
-            <textarea rows="5" class="form-control" ng-model="member.bio" placeholder="Bio"></textarea>
+            <textarea id="profileitem" rows="5" class="form-control" ng-model="member.bio" placeholder="Bio"></textarea>
         </div>
         <div class="form-group">
-            <input class="form-control" type="text" ng-model="member.websiteUrl" placeholder="http://yourwebsite.com">
+            <input id="profileitem"class="form-control" type="text" ng-model="member.websiteUrl" placeholder="http://yourwebsite.com">
         </div>
         <div class="form-group">
-            <input class="form-control" type="text" ng-model="member.github" placeholder="github.com/yourusernamehere">
+            <input id="profileitem" class="form-control" type="text" ng-model="member.github" placeholder="github.com/yourusernamehere">
         </div>
         <div class="form-group">
-            <input class="form-control" type="text" ng-model="member.twitterHandle" placeholder="twitter.com/username">
+            <input id="profileitem" class="form-control" type="text" ng-model="member.twitterHandle" placeholder="twitter.com/username">
         </div>
         <div class="form-group">
-            <input class="form-control" type="text" ng-model="member.favoriteTags" placeholder="Favorite Tags">
+            <input id="profileitem" class="form-control" type="text" ng-model="member.favoriteTags" placeholder="Favorite Tags">
         </div>
         <button class="btn btn-primary" type="submit">Submit</button>
     </form>
